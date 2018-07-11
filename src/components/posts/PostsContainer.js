@@ -3,6 +3,14 @@ import {Posts} from "./Posts";
 
 export class PostsContainer extends Component {
 
+    render() {
+        return(
+            <div>
+                <Posts posts={this.state.posts}/>
+            </div>
+        );
+    }
+
     constructor(props){
         super(props);
         this.state = {
@@ -16,13 +24,5 @@ export class PostsContainer extends Component {
         }).then(posts => {
             this.setState({posts: posts});
         });
-    }
-
-    render() {
-        return(
-            <div>
-                <Posts posts={this.state.posts}/>
-            </div>
-        );
     }
 }
