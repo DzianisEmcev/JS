@@ -4,7 +4,6 @@ import '../styles/App.css';
 import {PostsContainer} from './posts/PostsContainer';
 import {Time} from './time/Time';
 
-
 class App extends Component {
     render() {
         return (
