@@ -1,11 +1,4 @@
 import React, { Component } from 'react';
-import {BrowserRouter, Route} from "react-router-dom";
-
-const NewRoute = () => {
-    return(
-        <p>Hi it is react route</p>
-    );
-};
 
 export class Post extends Component {
 
@@ -18,12 +11,9 @@ export class Post extends Component {
             </div>
             ) : (
             <div className="Post">
-                <BrowserRouter>
-                    <Route path={"/posts/new/" + this.props.post.id} component={NewRoute} />
-                </BrowserRouter>
                 <button type="button" onClick={this.deletePost.bind(this)}>Delete</button>
                 <button type="button" onClick={this.editPost.bind(this)}>Edit</button>
-                <a href={"/posts/new/" + this.props.post.id}>{this.state.title}</a>
+                <a href={`/post/new/${this.props.post.id}`}>{this.state.title}</a>
                 <p>{this.state.body}</p>
                 <p>{this.props.post.id}</p>
             </div>
