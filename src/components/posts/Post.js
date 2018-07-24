@@ -13,7 +13,7 @@ export class Post extends Component {
             <div className="Post">
                 <button type="button" onClick={this.deletePost.bind(this)}>Delete</button>
                 <button type="button" onClick={this.editPost.bind(this)}>Edit</button>
-                <a href={`/post/new/${this.props.post.id}`}>{this.state.title}</a>
+                <a href={`/posts/new/${this.props.post.id}`}>{this.state.title}</a>
                 <p>{this.state.body}</p>
                 <p>{this.props.post.id}</p>
             </div>
