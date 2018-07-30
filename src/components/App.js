@@ -4,7 +4,7 @@ import '../styles/App.css';
 import {PostsContainer} from './posts/PostsContainer';
 import {Time} from './time/Time';
 import { BrowserRouter, Route} from "react-router-dom";
-import {TestRouter} from "./posts/TestRouter";
+import {Commnets} from "./comments/Commnets";
 
 class App extends Component {
     render() {
@@ -20,7 +20,7 @@ class App extends Component {
                     </div>
                     <div>
                         <Route exact path="/" component={PostsContainer} />
-                        <Route path="/posts/new/:postId" component={TestRouter} />
+                        <Route path="/posts/new/:postId" component={Commnets} />
                     </div>
                 </div>
             </BrowserRouter>
