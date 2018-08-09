@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {Comment} from "./Comment";
 
+
 export class Commnets extends Component {
 
     constructor(props) {
@@ -8,9 +9,7 @@ export class Commnets extends Component {
         this.state={
             title: '',
             email: '',
-            body: '',
-            like: 0,
-            dislike: 0
+            body: ''
         };
     }
 
