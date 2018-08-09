@@ -17,6 +17,8 @@ export class Commnets extends Component {
             return this.state.comments.map(function (comment) {
                 return(
                     <div key={comment.id} className="Comment">
+                        <button onClick={this.like}>Like: {this.state.like}</button>
+                        <button onClick={this.dislike}>Dislike: {this.state.dislike}</button>
                         <p>{comment.name}</p>
                         <p>{comment.email}</p>
                         <p>{comment.body}</p>
@@ -41,4 +43,19 @@ export class Commnets extends Component {
             this.setState({comments});
         });
     }
+
+    state = {
+        like: 0,
+        dislike:0
+    };
+
+    like = () => {
+        const like = this.state.like;
+        this.setState({ like: like + 1 });
+    };
+
+    dislike = () => {
+        const dislike = this.state.dislike;
+        this.setState({ dislike: dislike + 1 });
+    };
 }

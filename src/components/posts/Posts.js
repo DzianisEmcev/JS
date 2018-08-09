@@ -70,12 +70,12 @@ export class Posts extends Component {
         let posts = this.state.posts.filter(function(post) {
             return post.id !== id;
         });
-        this.setState({posts: posts});
+        this.setState({posts});
     }
 
     savePost(id, title, body){
         let posts = this.state.posts;
-        let post = this.state.posts.filter(post => post.id === id)[0];
+        let post = this.state.posts.find(post => post.id === id);
         post.title = title;
         post.body = body;
         this.setState({posts: posts});
