@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
+import {Comment} from "./Comment";
 
 export class Commnets extends Component {
 
     constructor(props) {
         super(props);
-        console.log(props);
         this.state={
             title: '',
             email: '',
             body: '',
-            like: 0
+            like: 0,
+            dislike: 0
         };
     }
 
@@ -17,13 +18,7 @@ export class Commnets extends Component {
         if (this.state.comments && this.state.comments.length) {
             return this.state.comments.map(comment => {
                 return(
-                    <div key={comment.id} className="Comment">
-                        <button onClick={this.like.bind(this,1)}>Like: {this.state.like}</button>
-                        <button onClick={this.like.bind(this,-1)}>Dislike: {this.state.like}</button>
-                        <p>{comment.name}</p>
-                        <p>{comment.email}</p>
-                        <p>{comment.body}</p>
-                    </div>
+                    <Comment comLike={comment}/>
                 )
             })
         }
@@ -44,9 +39,4 @@ export class Commnets extends Component {
             this.setState({comments});
         });
     }
-
-    like = (increment) => {
-        const like = this.state.like;
-        this.setState({ like: like + increment });
-    };
 }
