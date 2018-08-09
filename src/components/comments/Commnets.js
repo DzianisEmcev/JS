@@ -8,17 +8,18 @@ export class Commnets extends Component {
         this.state={
             title: '',
             email: '',
-            body: ''
+            body: '',
+            like: 0
         };
     }
 
     render() {
         if (this.state.comments && this.state.comments.length) {
-            return this.state.comments.map(function (comment) {
+            return this.state.comments.map(comment => {
                 return(
                     <div key={comment.id} className="Comment">
-                        <button onClick={this.like}>Like: {this.state.like}</button>
-                        <button onClick={this.dislike}>Dislike: {this.state.dislike}</button>
+                        <button onClick={this.like.bind(this,1)}>Like: {this.state.like}</button>
+                        <button onClick={this.like.bind(this,-1)}>Dislike: {this.state.like}</button>
                         <p>{comment.name}</p>
                         <p>{comment.email}</p>
                         <p>{comment.body}</p>
@@ -44,18 +45,8 @@ export class Commnets extends Component {
         });
     }
 
-    state = {
-        like: 0,
-        dislike:0
-    };
-
-    like = () => {
+    like = (increment) => {
         const like = this.state.like;
-        this.setState({ like: like + 1 });
-    };
-
-    dislike = () => {
-        const dislike = this.state.dislike;
-        this.setState({ dislike: dislike + 1 });
+        this.setState({ like: like + increment });
     };
 }
